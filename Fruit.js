@@ -1,11 +1,11 @@
 class Mango{
     constructor(x, y){
-        var features = {
+        var options = {
             isStatic: true,
             restituiton: 0,
             friction:1,
         }
-        this.body = Bodies.rectangle(x,y,50,50, features);
+        this.body = Bodies.rectangle(x,y,50,50, options);
         this.width = 50;
         this.height = 50;
         this.image = loadImage("mango.png");
