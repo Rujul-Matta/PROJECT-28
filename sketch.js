@@ -25,8 +25,8 @@ function setup() {
   ground = new Ground(width/2, height-10, width, 10);
   tree_1 = new tree(width-225,590, 100, 2);
   
-	boy_1 = new boy();
-	stone_1 = new Rock(135, 375, 50, 50);
+	boy_1 = new boy(width+10,475,200,425);
+	stone_1 = new Rock(285,475,50,50);
 
 	mango_1 = new Mango(1000, 250);
 	mango_2 = new Mango(1050, 300);
@@ -39,7 +39,7 @@ function setup() {
 	mango_9 = new Mango(1250, 250);
   mango_10 = new Mango(1300, 275);
   
-  rope_1 = new SlingShot(stone_1.body, {x:135, y:375});
+  rope_1 = new SlingShot(stone_1.body, {x:285, y:375});
 
 
 
@@ -51,16 +51,20 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background("white");
+  Engine.update(engine);
 
-  // textSize(25);
-  // text(mouseX + "," + mouseY , width/2 , height/2)
 
+  textSize(25);
+  text("Press space to get a second chance " , width/2 - 250 , height/2)
   ground.display();
 
   tree_1.display();
   imageMode(CENTER);
-  image(tree_1.image, width-225, 350, 500, 500)
+  image(tree_1.image, width-225, 350, 500, 500);
+
   boy_1.display();
+  imageMode(CENTER);
+  image(boy_1.image,350,475,200,425)
   stone_1.display();
 
   mango_1.display();
@@ -87,8 +91,14 @@ function draw() {
   detectCollision(stone_1,mango_9);
   detectCollision(stone_1,mango_10);
 }
+function keyPressed(){
+  if(keyCode === 32){
+    rope_1.attach(stone_1.body);
+  }
+}
 function mouseDragged(){
     Matter.Body.setPosition(stone_1.body,{x:mouseX, y: mouseY})
+    Matter.Body.setStatic(stone_1.body,false)
 }
 function mouseReleased(){
     rope_1.fly();
@@ -104,10 +114,5 @@ function detectCollision(stone,mango){
   }
 
 }
-function keyPressed(){
-  if(keyCode === 32){
-    Matter.body.setPosition(stone_1.body, {x: 135, y: 375});
-    rope_1.attach(stone_1.body);
-  }
-}
+
 
