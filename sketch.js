@@ -9,7 +9,7 @@ const Body = Matter.Body;
 var world = World;
 var body = Body;
 var bodies = Bodies;
-var M1;
+
 function preload()
 {
 	
@@ -26,7 +26,7 @@ function setup() {
   tree_1 = new tree(width-225,590, 100, 2);
   
 	boy_1 = new boy(width+10,475,200,425);
-	stone_1 = new Rock(285,475,50,50);
+	stone_1 = new Rock(285,375,50,50);
 
 	mango_1 = new Mango(1000, 250);
 	mango_2 = new Mango(1050, 300);
@@ -98,7 +98,7 @@ function keyPressed(){
 }
 function mouseDragged(){
     Matter.Body.setPosition(stone_1.body,{x:mouseX, y: mouseY})
-    Matter.Body.setStatic(stone_1.body,false)
+    // Matter.Body.setStatic(stone_1.body,false)
 }
 function mouseReleased(){
     rope_1.fly();
