@@ -2,7 +2,7 @@ class Rock{
 	constructor(x,y,width,height)
 	{
 		var options={
-			isStatic: false,
+			isStatic: true,
 			friction:1,
 			density:1.2,
 			restitution : 0
