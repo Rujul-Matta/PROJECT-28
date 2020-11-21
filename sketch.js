@@ -23,9 +23,9 @@ function setup() {
 	world = engine.world;
 
   ground = new Ground(width/2, height-10, width, 10);
-  tree_1 = new tree(width-225,590, 100, 2);
+  tree_1 = new tree(width-225,350, 1, 1);
   
-	boy_1 = new boy(width+10,475,200,425);
+	boy_1 = new boy(350,475,1,1);
 	stone_1 = new Rock(285,375,50,50);
 
 	mango_1 = new Mango(1000, 250);
@@ -59,12 +59,9 @@ function draw() {
   ground.display();
 
   tree_1.display();
-  imageMode(CENTER);
-  image(tree_1.image, width-225, 350, 500, 500);
-
   boy_1.display();
-  imageMode(CENTER);
-  image(boy_1.image,350,475,200,425)
+  // imageMode(CENTER);
+  // image(boy_1.image,350,475,200,425)
   stone_1.display();
 
   mango_1.display();
