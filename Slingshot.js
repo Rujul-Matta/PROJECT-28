@@ -3,15 +3,14 @@ class SlingShot{
         var options = {
             bodyA: bodyA,
             pointB: pointB,
-            // stiffness: 0.004,
-            length: 100
+            stiffness: 0.04,
+            length: 10
         }
         this.pointB = pointB;
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
     }
     attach(body){
-        // Matter.body.setPosition(stone_1, {x: 135, y: 375});
         this.sling.bodyA = body;
     }
 
